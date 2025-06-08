@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kız Başına - Ürün Detayı</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h1::after {
+      content: '🎈🎈';
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      font-size: 1.5rem;
+    }
+    .product-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .product-image {
+      flex: 1;
+    }
+    .product-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .product-info {
+      flex: 1;
+    }
+    .product-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .product-description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .price {
+      font-size: 1.4rem;
+      color: #FF5CA2;
+      margin-bottom: 20px;
+    }
+    .buy-button {
+      background-color: #FF5CA2;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .buy-button:hover {
+      background-color: #e64c8b;
+    }
+    .cart-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+    }
+    .cart-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .checkout-button {
+      margin-top: 20px;
+      background-color: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .checkout-button:hover {
+      background-color: #333;
+    }
+    .checkout-form {
+      display: none;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+    }
+    .checkout-form input, .checkout-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .submit-order {
+      background-color: #FF5CA2;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .submit-order:hover {
+      background-color: #e64c8b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kız Başına</h1>
+  </header>
+
+  <section class="product-detail">
+    <div class="product-image">
+      <img src="mockup1.jpg" alt="Kız Başına Tişört Detay" />
+    </div>
+    <div class="product-info">
+      <div class="product-title">Güçlü Kadın Tişört</div>
+      <div class="product-description">
+        Minimal ve güçlü tasarımıyla "Güçlü Kadın" tişörtü, her adımda seninle. %100 pamuk kumaş, rahat kesim.
+      </div>
+      <div class="price">249 TL</div>
+      <button class="buy-button" onclick="addToCart()">Sepete Ekle</button>
+    </div>
+  </section>
+
+  <section class="cart-section" id="cart">
+    <div class="cart-title">Sepetiniz</div>
+    <div class="cart-item">
+      <span>Güçlü Kadın Tişört</span>
+      <span>1 x 249 TL</span>
+    </div>
+    <button class="checkout-button" onclick="showCheckoutForm()">Satın Al</button>
+  </section>
+
+  <section class="checkout-form" id="checkoutForm">
+    <h2>Ödeme Bilgileri</h2>
+    <input type="text" placeholder="Ad Soyad" required />
+    <input type="text" placeholder="Adres" required />
+    <input type="text" placeholder="Telefon Numarası" required />
+    <input type="email" placeholder="E-posta" required />
+    <input type="text" placeholder="Kart Numarası" required />
+    <input type="text" placeholder="Son Kullanma Tarihi (AA/YY)" required />
+    <input type="text" placeholder="CVV" required />
+    <button class="submit-order">Siparişi Tamamla</button>
+  </section>
+
+  <script>
+    function addToCart() {
+      document.getElementById('cart').scrollIntoView({ behavior: 'smooth' });
+    }
+    function showCheckoutForm() {
+      const form = document.getElementById('checkoutForm');
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
